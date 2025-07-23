@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.registration.controllers.ViewCoursesController">
+   <top>
+      <HBox styleClass="nav-bar" spacing="20.0" alignment="CENTER_LEFT">
+         <Button fx:id="backButton" styleClass="nav-button" text="← Back to Dashboard" onAction="#handleBack" />
+         <Label styleClass="nav-title" text="My Registered Courses" />
+         <Region HBox.hgrow="ALWAYS" />
+         <Label fx:id="welcomeLabel" styleClass="nav-button" text="Welcome, User" />
+         <Button fx:id="logoutButton" styleClass="nav-button" text="Logout" onAction="#handleLogout" />
+      </HBox>
+   </top>
+   
+   <center>
+      <VBox styleClass="form-container" spacing="20.0">
+         <HBox spacing="15.0" alignment="CENTER_LEFT">
+            <Label styleClass="form-title" text="Your Registered Courses" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Button fx:id="refreshButton" styleClass="secondary-button" text="🔄 Refresh" onAction="#handleRefresh" />
+            <Button fx:id="dropSelectedButton" styleClass="danger-button" text="Drop Selected" onAction="#handleDropSelected" />
+         </HBox>
+         
+         <Label fx:id="messageLabel" text="" />
+         
+         <TableView fx:id="coursesTable" prefHeight="400.0">
+            <columns>
+               <TableColumn fx:id="courseIdColumn" text="Course ID" minWidth="100.0">
+                  <cellValueFactory>
+                     <PropertyValueFactory property="courseId" />
+                  </cellValueFactory>
+               </TableColumn>
+               <TableColumn fx:id="courseNameColumn" text="Course Name" minWidth="200.0">
+                  <cellValueFactory>
+                     <PropertyValueFactory property="courseName" />
+                  </cellValueFactory>
+               </TableColumn>
+               <TableColumn fx:id="instructorColumn" text="Instructor" minWidth="150.0">
+                  <cellValueFactory>
+                     <PropertyValueFactory property="instructor" />
+                  </cellValueFactory>
+               </TableColumn>
+               <TableColumn fx:id="scheduleColumn" text="Schedule" minWidth="150.0">
+                  <cellValueFactory>
+                     <PropertyValueFactory property="schedule" />
+                  </cellValueFactory>
+               </TableColumn>
+               <TableColumn fx:id="creditsColumn" text="Credits" minWidth="80.0">
+                  <cellValueFactory>
+                     <PropertyValueFactory property="credits" />
+                  </cellValueFactory>
+               </TableColumn>
+               <TableColumn fx:id="enrollmentColumn" text="Enrollment" minWidth="100.0">
+                  <cellValueFactory>
+                     <PropertyValueFactory property="currentEnrollment" />
+                  </cellValueFactory>
+               </TableColumn>
+               <TableColumn fx:id="actionsColumn" text="Actions" minWidth="120.0">
+                  <cellFactory>
+                     <Callback type="javafx.scene.control.TableColumn" />
+                  </cellFactory>
+               </TableColumn>
+            </columns>
+         </TableView>
+         
+         <Separator />
+         
+         <VBox spacing="15.0">
+            <Label text="Registration Summary" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
+            <HBox spacing="30.0" alignment="CENTER_LEFT">
+               <VBox alignment="CENTER" spacing="5.0">
+                  <Label fx:id="totalCoursesLabel" text="0" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #4a90e2;" />
+                  <Label text="Total Courses" style="-fx-font-size: 14px; -fx-text-fill: #6c757d;" />
+               </VBox>
+               <VBox alignment="CENTER" spacing="5.0">
+                  <Label fx:id="totalCreditsLabel" text="0" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #28a745;" />
+                  <Label text="Total Credits" style="-fx-font-size: 14px; -fx-text-fill: #6c757d;" />
+               </VBox>
+               <VBox alignment="CENTER" spacing="5.0">
+                  <Label fx:id="averageCreditsLabel" text="0.0" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #ffc107;" />
+                  <Label text="Avg Credits/Course" style="-fx-font-size: 14px; -fx-text-fill: #6c757d;" />
+               </VBox>
+            </HBox>
+         </VBox>
+         
+         <HBox spacing="15.0" alignment="CENTER">
+            <Button fx:id="registerMoreButton" styleClass="primary-button" text="Register for More Courses" onAction="#handleRegisterMore" />
+            <Button fx:id="printScheduleButton" styleClass="secondary-button" text="Print Schedule" onAction="#handlePrintSchedule" />
+         </HBox>
+      </VBox>
+   </center>
+</BorderPane>

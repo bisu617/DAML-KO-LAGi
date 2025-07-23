@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.registration.controllers.LoginController">
+   <center>
+      <StackPane styleClass="login-container">
+         <VBox styleClass="login-form" alignment="CENTER" spacing="20.0" maxWidth="400.0">
+            <Label styleClass="login-title" text="Student Registration System" />
+            <Label styleClass="login-subtitle" text="Please enter your credentials to continue" />
+            
+            <VBox spacing="15.0">
+               <VBox spacing="5.0">
+                  <Label styleClass="form-label" text="Username:" />
+                  <TextField fx:id="usernameField" styleClass="form-field" promptText="Enter your username" />
+               </VBox>
+               
+               <VBox spacing="5.0">
+                  <Label styleClass="form-label" text="Password:" />
+                  <PasswordField fx:id="passwordField" styleClass="form-field" promptText="Enter your password" />
+               </VBox>
+            </VBox>
+            
+            <Label fx:id="errorLabel" styleClass="error-message" text="" />
+            
+            <HBox spacing="15.0" alignment="CENTER">
+               <Button fx:id="loginButton" styleClass="primary-button" text="Login" onAction="#handleLogin" />
+               <Button fx:id="clearButton" styleClass="secondary-button" text="Clear" onAction="#handleClear" />
+            </HBox>
+            
+            <VBox spacing="10.0" alignment="CENTER">
+               <Label text="Demo Credentials:" style="-fx-font-size: 12px; -fx-text-fill: #666;" />
+               <Label text="Username: admin | Password: admin123" style="-fx-font-size: 11px; -fx-text-fill: #888;" />
+               <Label text="Username: johndoe | Password: password123" style="-fx-font-size: 11px; -fx-text-fill: #888;" />
+            </VBox>
+         </VBox>
+      </StackPane>
+   </center>
+</BorderPane>
