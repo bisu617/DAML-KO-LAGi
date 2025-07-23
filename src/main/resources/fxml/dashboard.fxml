@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.registration.controllers.DashboardController">
+   <top>
+      <HBox styleClass="nav-bar" spacing="20.0" alignment="CENTER_LEFT">
+         <Label fx:id="navTitle" styleClass="nav-title" text="Student Registration System" />
+         <Region HBox.hgrow="ALWAYS" />
+         <Label fx:id="welcomeLabel" styleClass="nav-button" text="Welcome, User" />
+         <Button fx:id="logoutButton" styleClass="nav-button" text="Logout" onAction="#handleLogout" />
+      </HBox>
+   </top>
+   
+   <center>
+      <VBox styleClass="dashboard-container" spacing="30.0">
+         <VBox styleClass="dashboard-header" spacing="10.0">
+            <Label fx:id="welcomeTitle" styleClass="welcome-title" text="Welcome to Your Dashboard" />
+            <Label fx:id="welcomeSubtitle" styleClass="welcome-subtitle" text="Select an option below to get started" />
+         </VBox>
+         
+         <GridPane styleClass="menu-grid" alignment="CENTER" hgap="20.0" vgap="20.0">
+            <columnConstraints>
+               <ColumnConstraints />
+               <ColumnConstraints />
+            </columnConstraints>
+            <rowConstraints>
+               <RowConstraints />
+               <RowConstraints />
+            </rowConstraints>
+            
+            <VBox styleClass="menu-button" onMouseClicked="#handleProfile" GridPane.columnIndex="0" GridPane.rowIndex="0">
+               <Label styleClass="menu-button-title" text="👤 My Profile" />
+               <Label styleClass="menu-button-description" text="View and edit your personal information" wrapText="true" />
+            </VBox>
+            
+            <VBox styleClass="menu-button" onMouseClicked="#handleCourseRegistration" GridPane.columnIndex="1" GridPane.rowIndex="0">
+               <Label styleClass="menu-button-title" text="📚 Register for Courses" />
+               <Label styleClass="menu-button-description" text="Browse and register for available courses" wrapText="true" />
+            </VBox>
+            
+            <VBox styleClass="menu-button" onMouseClicked="#handleViewCourses" GridPane.columnIndex="0" GridPane.rowIndex="1">
+               <Label styleClass="menu-button-title" text="📋 My Courses" />
+               <Label styleClass="menu-button-description" text="View your registered courses and manage enrollment" wrapText="true" />
+            </VBox>
+            
+            <VBox styleClass="menu-button" onMouseClicked="#handleRefresh" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <Label styleClass="menu-button-title" text="🔄 Refresh Data" />
+               <Label styleClass="menu-button-description" text="Reload all data from the system" wrapText="true" />
+            </VBox>
+         </GridPane>
+         
+         <VBox spacing="10.0" alignment="CENTER">
+            <Label text="Quick Stats" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
+            <HBox spacing="30.0" alignment="CENTER">
+               <VBox alignment="CENTER" spacing="5.0">
+                  <Label fx:id="registeredCoursesCount" text="0" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #4a90e2;" />
+                  <Label text="Registered Courses" style="-fx-font-size: 14px; -fx-text-fill: #6c757d;" />
+               </VBox>
+               <VBox alignment="CENTER" spacing="5.0">
+                  <Label fx:id="availableCoursesCount" text="0" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #28a745;" />
+                  <Label text="Available Courses" style="-fx-font-size: 14px; -fx-text-fill: #6c757d;" />
+               </VBox>
+            </HBox>
+         </VBox>
+      </VBox>
+   </center>
+</BorderPane>
